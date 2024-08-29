@@ -30,4 +30,13 @@ class EmployeeController extends Controller
         // Redirect with a success message
         return redirect()->route('dashboard')->with('success', 'Employee added successfully!');
     }
+
+    public function destroy($id)
+    {
+        $employee = Employee::findOrFail($id);
+
+        $employee->delete();
+        
+        return redirect()->route('dashboard')->with('success','Employee removed successfully!');
+    }
 }

@@ -33,6 +33,7 @@ tr:nth-child(even) {
                 <th>Age</th>
                 <th>Work</th>
                 <th>Email</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +43,17 @@ tr:nth-child(even) {
                 <td>{{ $employee->age}}</td>
                 <td>{{ $employee->work}}</td>
                 <td>{{ $employee->email}}</td>
+                <td>
+                    <form action="{{ route('employee.destroy', $employee ->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        
+                        <button>delete</button>
+
+                    </form>
+
+                </td>
+
             </tr>
             @endforeach
         </tbody>
